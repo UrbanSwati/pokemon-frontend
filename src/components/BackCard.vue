@@ -18,6 +18,20 @@
           </p>
         </div>
       </div>
+      <hr />
+      <p class="mt-2 mb-2 text-muted">
+        <b>STATS</b>
+      </p>
+      <div class="row col mt-1 mb-1 text-muted">
+        <div class="col">Health: {{ pokemon.health }}</div>
+        <div class="col">Attack: {{ pokemon.attack }}</div>
+        <div class="col">Defense: {{ pokemon.defense }}</div>
+      </div>
+      <div class="row col mt-1 mb-1 text-muted">
+        <div class="col">Special Attack {{ pokemon.special_attack }}</div>
+        <div class="col">Weight: {{ pokemon.weight }}</div>
+        <div class="col">XP: {{ pokemon.experience }}</div>
+      </div>
     </div>
   </div>
 </template>

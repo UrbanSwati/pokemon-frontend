@@ -15,7 +15,7 @@ export const usePokemonStore = defineStore({
       this.pokemons = [];
 
       axios
-        .get("api/v1/pokemon")
+        .get("api/v1/pokemon?limit=100")
         .then((response) => {
           if (response.status !== 200) {
             this.errorMessage = response.data;
