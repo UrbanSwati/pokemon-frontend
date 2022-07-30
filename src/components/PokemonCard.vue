@@ -55,7 +55,7 @@ defineProps(["pokemon"]);
           </div>
 
           <!-- defense -->
-          <div class="col" data-toggle="tooltip" title="Defence">
+          <div class="col" data-toggle="tooltip" title="Defense">
             <span class="text-info mr-2"
               ><font-awesome-icon icon="fa-solid fa-shield" />
               {{ pokemon.defense }}</span
