@@ -3,15 +3,15 @@
     <div class="card-body">
       <div class="row">
         <div class="col">
-          <h7 class="card-title text-uppercase text-muted mb-0">
+          <h4 class="card-title text-uppercase text-muted mb-0">
             <b>{{ pokemon.name }} Abilities</b>
-          </h7>
+          </h4>
         </div>
       </div>
 
       <div class="row">
         <div v-for="ability in pokemon.abilities" :key="ability">
-          <p class="mt-0 mb-0 text-muted">
+          <p class="mt-2 mb-2 text-muted">
             <b>{{ ability.name }}</b
             >:
             {{ ability.effect }}
