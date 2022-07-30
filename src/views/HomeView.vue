@@ -26,7 +26,11 @@ onMounted(() => {
   </div>
   <h1 v-if="errorMessage != null">{{ errorMessage }}</h1>
 
-  <div v-if="!loading" class="form-group" style="padding-bottom: 1rem">
+  <div
+    v-if="!loading && errorMessage != null"
+    class="form-group"
+    style="padding-bottom: 1rem"
+  >
     <input
       class="form-control"
       type="text"
