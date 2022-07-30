@@ -1,73 +1,54 @@
 <script setup>
+import FrontCard from "./FrontCard.vue";
+import BackCard from "./BackCard.vue";
 defineProps(["pokemon"]);
 </script>
 
 <template>
-  <div class="col-md-4">
-    <div class="card card-stats mb-4 mb-xl-0 shadow">
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">
-              {{ pokemon.name }}
-            </h5>
-            <span
-              class="h6 font-weight-bold mb-0"
-              data-toggle="tooltip"
-              title="Experience"
-              >{{ pokemon.experience }} XP</span
-            >
-            <br />
-            <span class="h6 font-weight-bold mb-0">
-              {{ pokemon.abilities.length }} Abilities</span
-            >
-          </div>
-          <div class="col-auto">
-            <div class="icon icon-shape text-white rounded-circle">
-              <img :src="pokemon.picture_url" class="card-img-top" />
-            </div>
-          </div>
-        </div>
-        <!-- <p class="mt-3 mb-0 text-muted text-sm"> -->
-        <div class="row">
-          <!-- health -->
-          <div class="col" data-toggle="tooltip" title="Health">
-            <span class="text-danger mr-2"
-              ><font-awesome-icon icon="fa-solid fa-heart" />
-              {{ pokemon.health }}</span
-            >
-          </div>
-
-          <!-- attack -->
-          <div class="col" data-toggle="tooltip" title="Attack">
-            <span class="text-success mr-2"
-              ><font-awesome-icon icon="fa-solid fa-hand-back-fist" />
-              {{ pokemon.attack }}</span
-            >
-          </div>
-
-          <!-- special attack -->
-          <div class="col" data-toggle="tooltip" title="Special Attack">
-            <span class="text-warning mr-2"
-              ><font-awesome-icon icon="fa-solid fa-bolt-lightning" />
-              {{ pokemon.special_attack }}</span
-            >
-          </div>
-
-          <!-- defense -->
-          <div class="col" data-toggle="tooltip" title="Defense">
-            <span class="text-info mr-2"
-              ><font-awesome-icon icon="fa-solid fa-shield" />
-              {{ pokemon.defense }}</span
-            >
-          </div>
-        </div>
-      </div>
+  <input type="checkbox" :id="pokemon.name" />
+  <label class="col-md-4 card-container" :for="pokemon.name">
+    <div class="card-flip">
+      <FrontCard :pokemon="pokemon"></FrontCard>
+      <BackCard :pokemon="pokemon"></BackCard>
     </div>
-  </div>
+  </label>
 </template>
 <style scoped>
 .row > * {
   padding-bottom: calc(var(--bs-gutter-x) * 0.99);
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Flip Cards CSS */
+.card-container {
+  display: grid;
+}
+.card-flip {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  grid-template-areas: "frontAndBack";
+  transform-style: preserve-3d;
+  transition: all 0.7s ease;
+}
+
+.card-flip div {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.front {
+  grid-area: frontAndBack;
+}
+
+.back {
+  grid-area: frontAndBack;
+  transform: rotateY(-180deg);
+}
+
+input[type="checkbox"]:checked + .card-container .card-flip {
+  transform: rotateY(180deg);
 }
 </style>
