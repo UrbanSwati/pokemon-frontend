@@ -41,3 +41,22 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+## Running localy
+### Docker
+Build the image
+```
+docker build . -t pokemonfrontend
+```
+Then run the container
+```
+docker run -p 80:8080 -t pokemonfrontend 
+```
+Then go to [http://localhost](http://localhost) 
+
+*If you get an error concerning port 80 already being allocated change to a different port*
+example using port `8080`
+```
+docker run -p 8080:8080 -t pokemonfrontend 
+```
+Then go to [http://localhost:8080](http://localhost:8080) 
